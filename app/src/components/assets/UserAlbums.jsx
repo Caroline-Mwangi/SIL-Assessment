@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import PhotoCount from "./PhotoCount";
+import { Link } from "react-router-dom";
 
 export default function UserAlbums({ userId }) {
   const [albums, setAlbums] = useState([]);
@@ -27,7 +28,7 @@ export default function UserAlbums({ userId }) {
                 <p class="card-text">
                   <PhotoCount albumId={album.id} />
                 </p>
-                <a href="">View Album</a>
+                <Link to={`/album/${album.id}`}>View Album</Link>
               </div>
             </div>
           </div>
