@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AlbumCount from "../assets/AlbumCount";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   document.title = "SIL Assessment | Home";
@@ -30,7 +31,7 @@ export default function Home() {
                 <p class="card-text">
                   <AlbumCount userId={user.id} />
                 </p>
-                <a href="#">View User</a>
+                <Link to={`/user/${user.id}`}>View User</Link>
               </div>
             </div>
           </div>
