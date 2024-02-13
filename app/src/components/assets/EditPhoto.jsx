@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-
 export default function EditPhoto() {
   const [title, setTitle] = useState("");
   const navigate = useNavigate();

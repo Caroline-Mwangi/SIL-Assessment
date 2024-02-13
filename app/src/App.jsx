@@ -4,12 +4,14 @@ import Home from "./components/pages/Home";
 import User from "./components/pages/User";
 import Album from "./components/pages/Album";
 import Photo from "./components/pages/Photo";
+import Login from "./components/pages/Login";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/user/:id" element={<User />} />
           <Route path="/album/:id" element={<Album />} />
