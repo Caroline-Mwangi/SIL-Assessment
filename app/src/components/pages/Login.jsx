@@ -1,4 +1,4 @@
-import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import { GoogleLogin, googleLogout, useGoogleLogin } from "@react-oauth/google";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -20,11 +20,11 @@ export default function Login() {
     onError: (error) => console.log("Login failed", error),
   });
 
- 
-
   return (
     <>
-      <button onClick={login}>Sign in with google</button>
+      <div>
+        <button className="mt-5 ms-3" onClick={login}>Sign in with google</button>
+      </div>
     </>
   );
 }

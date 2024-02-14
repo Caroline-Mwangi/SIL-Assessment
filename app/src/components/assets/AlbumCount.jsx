@@ -17,7 +17,7 @@ export default function AlbumCount({ userId }) {
 
   return (
     <>
-      <span class="badge bg-warning-subtle text-secondary">
+      <span className="badge bg-success-subtle text-secondary">
         <b>Albums:</b> {count}
       </span>
     </>

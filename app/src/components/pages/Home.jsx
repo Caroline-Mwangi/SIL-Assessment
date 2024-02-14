@@ -21,13 +21,7 @@ export default function Home() {
     setLoading(false);
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      getUsers();
-    }, 3000);
-  }, []);
-
-  useEffect(() => {
+  const getUserSession = () => {
     axios
       .get(`https://www.googleapis.com/oauth2/v1/userinfo`, {
         headers: {
@@ -41,6 +35,13 @@ export default function Home() {
         setProfile(res.data);
       })
       .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      getUsers();
+      getUserSession();
+    }, 3000);
   }, []);
 
   const logout = () => {
@@ -56,24 +57,50 @@ export default function Home() {
         <div>
           {profile && (
             <>
-              <p className="m-4">Welcome, {profile.name}</p>
-              <button className="ms-4 mb-3" onClick={logout}>
-                Logout
-              </button>
+              <div className="d-flex justify-content-end mb-5 me-2 position-relative">
+                <p className="me-4  text-dark text-opacity-75 mt-2">
+                  <div className="dropdown">
+                    <button
+                      className="bg-transparent btn-sm border-0 dropdown-toggle d-flex align-items-center mt-1"
+                      data-bs-toggle="dropdown"
+                    >
+                      <img
+                        src={profile.picture}
+                        className="rounded-5 me-2"
+                        width="25"
+                        height="25"
+                      />
+                      Hello, {profile.name}
+                    </button>
+                    <ul className="dropdown-menu bg-success-subtle ">
+                      <li className="d-flex justify-content-center align-items-center">
+                        <button
+                          className=" bg-transparent border-0 btn-sm"
+                          onClick={logout}
+                        >
+                          Logout
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </p>
+              </div>
             </>
           )}
 
-          <div class="row">
+          <h1 className="text-center mb-5 ">USERS</h1>
+
+          <div className="row">
             {users.map((user) => (
               <div className="col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center mb-5">
-                <div class="card w-75">
-                  <h5 class="card-header">{user.name}</h5>
-                  <div class="card-body">
-                    <p class="card-title">
+                <div className="card w-75 shadow">
+                  <h5 className="card-header">{user.name}</h5>
+                  <div className="card-body">
+                    <p className="card-title">
                       <b>Username: </b>
                       {user.username}
                     </p>
-                    <p class="card-text">
+                    <p className="card-text">
                       <AlbumCount userId={user.id} />
                     </p>
                     <Link to={`/user/${user.id}`}>View User</Link>

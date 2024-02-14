@@ -17,7 +17,7 @@ export default function PhotoCount({ albumId }) {
 
   return (
     <>
-      <span class="badge bg-warning-subtle text-secondary">
+      <span class="badge bg-success-subtle text-secondary">
         <b>Photos:</b> {count}
       </span>
     </>

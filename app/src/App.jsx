@@ -5,11 +5,13 @@ import User from "./components/pages/User";
 import Album from "./components/pages/Album";
 import Photo from "./components/pages/Photo";
 import Login from "./components/pages/Login";
+import Navbar from "./components/assets/Navbar"
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
