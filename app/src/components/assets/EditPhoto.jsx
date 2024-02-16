@@ -101,7 +101,7 @@ export default function EditPhoto() {
               </button>
               <button
                 type="button"
-                className="btn btn-primary"
+                className="btn bg-success-subtle"
                 data-bs-dismiss="modal"
                 onClick={editTitle}
               >

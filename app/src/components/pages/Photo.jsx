@@ -72,7 +72,7 @@ export default function Photo() {
                       />
                       Hello, {profile.name}
                     </button>
-                    <ul className="dropdown-menu bg-success-subtle ">
+                    <ul className="dropdown-menu bg-success-subtle position-absolute end-0 start-25 mt-2 ">
                       <li className="d-flex justify-content-center align-items-center">
                         <button
                           className=" bg-transparent border-0 btn-sm"
