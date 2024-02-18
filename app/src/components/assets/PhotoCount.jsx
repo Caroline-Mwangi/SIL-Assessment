@@ -1,3 +1,4 @@
+import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -17,7 +18,7 @@ export default function PhotoCount({ albumId }) {
 
   return (
     <>
-      <span class="badge bg-success-subtle text-secondary">
+      <span className="badge bg-success-subtle text-secondary">
         <b>Photos:</b> {count}
       </span>
     </>

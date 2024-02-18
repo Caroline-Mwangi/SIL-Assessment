@@ -31,7 +31,11 @@ export default function Photo() {
         },
       })
       .then((res) => {
-        setProfile(res.data);
+        if (res && res.data) {
+          setProfile(res.data);
+        } else {
+          console.error("Invalid response:", res);
+        }
       })
       .catch((err) => console.log(err));
   };

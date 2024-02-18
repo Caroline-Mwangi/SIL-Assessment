@@ -1,13 +1,12 @@
-import { GoogleLogin, googleLogout, useGoogleLogin } from "@react-oauth/google";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useGoogleLogin } from "@react-oauth/google";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [user, setUser] = useState(
     JSON.parse(sessionStorage.getItem("user")) || null
   );
-  const [profile, setProfile] = useState(null);
+
   const navigate = useNavigate();
 
   const login = useGoogleLogin({
@@ -23,7 +22,9 @@ export default function Login() {
   return (
     <>
       <div>
-        <button className="mt-5 ms-3" onClick={login}>Sign in with google</button>
+        <button className="mt-5 ms-3 position-relative" onClick={login}>
+          Sign in with google
+        </button>
       </div>
     </>
   );

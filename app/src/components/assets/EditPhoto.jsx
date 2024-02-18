@@ -1,3 +1,4 @@
+import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -24,17 +25,17 @@ export default function EditPhoto() {
 
     field.append("title", title);
 
-    const response = await axios({
-      method: "PUT",
-      url: `https://jsonplaceholder.typicode.com/photos/${id}`,
-      data: field,
-    });
-
-    if (response.status >= 200 && response.status < 300) {
-      navigate(`/photo/${id}`);
-      console.log("Success:", response.status);
-    } else {
-      console.error("Error editing title:", response.status);
+    try {
+      await axios({
+        method: "PUT",
+        url: `https://jsonplaceholder.typicode.com/photos/${id}`,
+        data: field,
+      }).then(() => {
+        navigate(`/photo/${id}`);
+        console.log("Success!");
+      });
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
   return (

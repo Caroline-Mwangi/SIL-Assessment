@@ -1,3 +1,4 @@
+import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import PhotoCount from "./PhotoCount";
@@ -19,13 +20,15 @@ export default function UserAlbums({ userId }) {
 
   return (
     <>
-      <div class="row">
+      <div className="row">
         {albums.map((album) => (
-          <div className="col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center mb-5">
-            <div class="card w-75 shadow">
-              <h5 class="card-header">{album.title}</h5>
-              <div class="card-body">
-                <p class="card-text">
+          <div key={album.id} className="col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center mb-5">
+            <div className="card w-75 shadow">
+              <h5 className="card-header" data-testid="album-title">
+                {album.title}
+              </h5>
+              <div className="card-body">
+                <p className="card-text">
                   <PhotoCount albumId={album.id} />
                 </p>
                 <Link to={`/album/${album.id}`}>View Album</Link>
