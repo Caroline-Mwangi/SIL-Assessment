@@ -21,8 +21,9 @@ export default function Login() {
 
   return (
     <>
-      <div>
-        <button className="mt-5 ms-3 position-relative" onClick={login}>
+      <div className="container mt-5 p-3 position-absolute">
+        <h1 >USERS, ALBUMS AND PHOTOS</h1>
+        <button onClick={login}>
           Sign in with google
         </button>
       </div>
