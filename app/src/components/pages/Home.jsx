@@ -57,33 +57,31 @@ export default function Home() {
         <div>
           {profile && (
             <>
-              <div className="d-flex justify-content-end mb-5 me-2 position-relative">
-                <p className="me-4  text-dark text-opacity-75 mt-2">
-                  <div className="dropdown">
-                    <button
-                      className="bg-transparent btn-sm border-0 dropdown-toggle d-flex align-items-center mt-1"
-                      data-bs-toggle="dropdown"
-                    >
-                      <img
-                        src={profile.picture}
-                        className="rounded-5 me-2"
-                        width="25"
-                        height="25"
-                      />
-                      Hello, {profile.name}
-                    </button>
-                    <ul className="dropdown-menu bg-success-subtle ">
-                      <li className="d-flex justify-content-center align-items-center">
-                        <button
-                          className=" bg-transparent border-0 btn-sm"
-                          onClick={logout}
-                        >
-                          Logout
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                </p>
+              <div className="d-flex justify-content-end mb-5">
+                <div className="dropdown mt-2 me-2">
+                  <button
+                    className="bg-transparent btn-sm border-0 dropdown-toggle d-flex align-items-center mt-1"
+                    data-bs-toggle="dropdown"
+                  >
+                    <img
+                      src={profile.picture}
+                      className="rounded-5 me-2"
+                      width="25"
+                      height="25"
+                    />
+                    Hello, {profile.name}
+                  </button>
+                  <ul className="dropdown-menu bg-success-subtle end-0 mt-2 ">
+                    <li className="d-flex justify-content-center align-items-center">
+                      <button
+                        className=" bg-transparent border-0 btn-sm"
+                        onClick={logout}
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </>
           )}
@@ -92,7 +90,10 @@ export default function Home() {
 
           <div className="row">
             {users.map((user) => (
-              <div className="col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center mb-5">
+              <div
+                key={user.id}
+                className="col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center mb-5"
+              >
                 <div className="card w-75 shadow">
                   <h5 className="card-header">{user.name}</h5>
                   <div className="card-body">
@@ -103,7 +104,12 @@ export default function Home() {
                     <p className="card-text">
                       <AlbumCount userId={user.id} />
                     </p>
-                    <Link to={`/user/${user.id}`}>View User</Link>
+                    <Link
+                      to={`/user/${user.id}`}
+                      className="card-link position-absolute bottom-0 end-0 m-1 me-2 link-secondary link-underline-opacity-0 link-underline-opacity-75-hover link-offset-1-hover"
+                    >
+                      View User {">>"}
+                    </Link>
                   </div>
                 </div>
               </div>
