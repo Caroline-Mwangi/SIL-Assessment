@@ -22,7 +22,7 @@ export default function Login() {
   return (
     <>
       <div className="container mt-5 p-3 position-absolute">
-        <h1 >USERS, ALBUMS AND PHOTOS</h1>
+        <h1 >USERS, ALBUMS AND PHOTOS...</h1>
         <button onClick={login}>
           Sign in with google
         </button>
