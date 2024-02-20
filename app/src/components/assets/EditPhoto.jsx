@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
+/* eslint-enable no-unused-vars */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -8,17 +10,16 @@ export default function EditPhoto() {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  let getPhoto = async () => {
-    const result = await axios.get(
-      `https://jsonplaceholder.typicode.com/photos/${id}`
-    );
-
-    setTitle(result.data.title);
-  };
-
   useEffect(() => {
+    let getPhoto = async () => {
+      const result = await axios.get(
+        `https://jsonplaceholder.typicode.com/photos/${id}`
+      );
+
+      setTitle(result.data.title);
+    };
     getPhoto();
-  }, []);
+  }, [id]);
 
   const editTitle = async () => {
     let field = new FormData();

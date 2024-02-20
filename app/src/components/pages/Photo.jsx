@@ -12,14 +12,6 @@ export default function Photo() {
   const [profile, setProfile] = useState(null);
   const navigate = useNavigate();
 
-  const getPhoto = async () => {
-    const { data } = await axios.get(
-      `https://jsonplaceholder.typicode.com/photos/${id}`
-    );
-    setPhoto(data);
-    setLoading(false);
-  };
-
   const getUserSession = () => {
     axios
       .get(`https://www.googleapis.com/oauth2/v1/userinfo`, {
@@ -47,11 +39,18 @@ export default function Photo() {
   };
 
   useEffect(() => {
+    const getPhoto = async () => {
+      const { data } = await axios.get(
+        `https://jsonplaceholder.typicode.com/photos/${id}`
+      );
+      setPhoto(data);
+      setLoading(false);
+    };
     setTimeout(() => {
       getPhoto();
       getUserSession();
     }, 3000);
-  }, []);
+  }, [id]);
 
   return (
     <>

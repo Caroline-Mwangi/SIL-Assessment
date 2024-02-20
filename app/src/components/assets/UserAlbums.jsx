@@ -1,20 +1,22 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
+/* eslint-enable no-unused-vars */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import PhotoCount from "./PhotoCount";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default function UserAlbums({ userId }) {
   const [albums, setAlbums] = useState([]);
 
-  const getUserAlbums = async () => {
-    const { data } = await axios.get(
-      `https://jsonplaceholder.typicode.com/albums?userId=${userId}`
-    );
-    setAlbums(data);
-  };
-
   useEffect(() => {
+    const getUserAlbums = async () => {
+      const { data } = await axios.get(
+        `https://jsonplaceholder.typicode.com/albums?userId=${userId}`
+      );
+      setAlbums(data);
+    };
     getUserAlbums();
   }, [userId]);
 
@@ -48,3 +50,7 @@ export default function UserAlbums({ userId }) {
     </>
   );
 }
+
+UserAlbums.propTypes = {
+  userId: PropTypes.number.isRequired,
+};
