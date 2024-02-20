@@ -55,7 +55,10 @@ export default function User() {
         <div>
           {profile && (
             <>
-              <div className="d-flex justify-content-end mb-5 position-relative">
+              <div
+                className="mb-5 mt-2 me-1 position-absolute top-0 end-0"
+                style={{ fontSize: "1em" }}
+              >
                 <div className="dropdown me-2 mt-2">
                   <button
                     className="bg-transparent btn-sm border-0 dropdown-toggle d-flex align-items-center mt-1"

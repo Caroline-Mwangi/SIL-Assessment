@@ -10,7 +10,7 @@ import "@testing-library/jest-dom";
 
 jest.mock("axios");
 
-test("renders album photos correctly", async () => {
+test("renders AlbumPhotos component correctly", async () => {
   axios.get.mockResolvedValue({
     data: [
       { id: 1, thumbnailUrl: "https://myimage.com/image1.jpg" },
