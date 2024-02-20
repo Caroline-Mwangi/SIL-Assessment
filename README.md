@@ -66,6 +66,11 @@ To run ESLint, run the following command
 ```bash
   npm run lint
 ```
+## Roadmap
+
+- Add more unit tests
+
+
 ## Authors
 
 - [@Caroline-Mwangi](https://github.com/Caroline-Mwangi)
