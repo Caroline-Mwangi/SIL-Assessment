@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
+/* eslint-enable no-unused-vars */
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AlbumCount from "../assets/AlbumCount";
@@ -22,19 +25,20 @@ export default function Home() {
   };
 
   const getUserSession = () => {
-    axios
-      .get(`https://www.googleapis.com/oauth2/v1/userinfo`, {
-        headers: {
-          Authorization: `Bearer ${
-            JSON.parse(sessionStorage.getItem("user")).access_token
-          }`,
-          Accept: "application/json",
-        },
-      })
-      .then((res) => {
-        setProfile(res.data);
-      })
-      .catch((err) => console.log(err));
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    if (user && user.access_token) {
+      axios
+        .get(`https://www.googleapis.com/oauth2/v1/userinfo`, {
+          headers: {
+            Authorization: `Bearer ${user.access_token}`,
+            Accept: "application/json",
+          },
+        })
+        .then((res) => {
+          setProfile(res.data);
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   useEffect(() => {
@@ -100,7 +104,7 @@ export default function Home() {
                 <div className="card w-75 shadow">
                   <h5 className="card-header">{user.name}</h5>
                   <div className="card-body">
-                    <p className="card-title">
+                    <p className="card-title" data-testid="username">
                       <b>Username: </b>
                       {user.username}
                     </p>
