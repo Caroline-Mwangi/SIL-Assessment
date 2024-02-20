@@ -105,7 +105,7 @@ export default function Photo() {
             </div>
 
             <div className="d-flex justify-content-center mt-5">
-              <img src={photo.url} />
+              <img className="img-fluid p-3" src={photo.url} />
             </div>
           </div>
         </div>
