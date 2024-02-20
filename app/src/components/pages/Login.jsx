@@ -34,16 +34,15 @@ export default function Login() {
                   letterSpacing: "6px",
                 }}
               >
-                PHOTO HUB
+                SIL ASSESSMENT
               </h1>
               <p
                 className="login-sub-head text-secondary px-4 mb-5"
                 style={{ fontSize: "1.4em", letterSpacing: "1px" }}
               >
-                Welcome to Photo Hub! A photo gallery experience designed to
+                A photo gallery application designed to
                 allow you to seamlessly browse through albums and photo
-                collections curated by different users. Sign in to begin the
-                Photo Hub journey!!
+                collections curated by different users. Sign in to begin the journey!!
               </p>
               <button
                 className="btn btn-success rounded-5 w-75"
