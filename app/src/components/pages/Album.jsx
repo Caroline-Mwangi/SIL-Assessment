@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
+/* eslint-enable no-unused-vars */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -13,19 +16,20 @@ export default function Album() {
   const navigate = useNavigate();
 
   const getUserSession = () => {
-    axios
-      .get(`https://www.googleapis.com/oauth2/v1/userinfo`, {
-        headers: {
-          Authorization: `Bearer ${
-            JSON.parse(sessionStorage.getItem("user")).access_token
-          }`,
-          Accept: "application/json",
-        },
-      })
-      .then((res) => {
-        setProfile(res.data);
-      })
-      .catch((err) => console.log(err));
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    if (user && user.access_token) {
+      axios
+        .get(`https://www.googleapis.com/oauth2/v1/userinfo`, {
+          headers: {
+            Authorization: `Bearer ${user.access_token}`,
+            Accept: "application/json",
+          },
+        })
+        .then((res) => {
+          setProfile(res.data);
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   const logout = () => {
@@ -88,7 +92,9 @@ export default function Album() {
           )}
 
           <div className="container w-75 d-flex justify-content-center mb-5">
-            <h1 className="text-center  ">ALBUM: {album.title}</h1>
+            <h1 className="text-center" data-testid="album">
+              ALBUM: {album.title}
+            </h1>
           </div>
 
           <div>
