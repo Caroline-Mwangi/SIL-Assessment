@@ -6,7 +6,7 @@ import { render, screen } from "@testing-library/react";
 import Loader from "../src/components/assets/Loader";
 import "@testing-library/jest-dom";
 
-test("renders Loader component with correctly", () => {
+test("renders Loader component correctly", () => {
   render(<Loader />);
   const loaderElements = screen.getAllByRole("status");
   expect(loaderElements.length).toBe(3);

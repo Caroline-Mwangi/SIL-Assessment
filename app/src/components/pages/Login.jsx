@@ -22,38 +22,50 @@ export default function Login() {
 
   return (
     <>
-      <div className="container-fluid d-flex align-items-center justify-content-center vh-100">
-        <div className="row container mx-auto text-center">
-          <div className="col-md-6">
-            <div className=" position-relative text-center p-3 d-flex flex-column justify-content-center align-items-center">
-              <h1 className="login-head">PHOTO HUB</h1>
-              <p className=" login-sub-head text-secondary mt-5 mb-5">
+      <div className="container-fluid position-absolute top-0 ">
+        <div className=" text-center p-3 ">
+          <div className="row d-flex align-items-center justify-content-center vh-100">
+            <div className="col-lg-6 col-md-12 mt-5 p-3">
+              <h1
+                className="mt-3 mb-4"
+                style={{
+                  fontWeight: "700",
+                  fontSize: "3em",
+                  letterSpacing: "6px",
+                }}
+              >
+                PHOTO HUB
+              </h1>
+              <p
+                className="login-sub-head text-secondary px-4 mb-5"
+                style={{ fontSize: "1.4em", letterSpacing: "1px" }}
+              >
                 Welcome to Photo Hub! A photo gallery experience designed to
                 allow you to seamlessly browse through albums and photo
                 collections curated by different users. Sign in to begin the
                 Photo Hub journey!!
               </p>
               <button
-                className="bg-success-subtle bg-opacity-50 border-1 p-2 rounded-3 w-75"
+                className="btn btn-success rounded-5 w-75"
                 onClick={login}
               >
                 <img
                   src="google.svg"
-                  className="border-0 me-1 "
+                  alt="Google Logo"
+                  className="border-0 me-1"
                   width="18"
                   height="18"
                 />
-                Sign in with google
+                Sign in with Google
               </button>
             </div>
-          </div>
-          <div className="col-md-6 d-flex flex-column justify-content-center p-5">
-            <img
-              src="image.png"
-              className="img-fluid ms-5 mt-3"
-              width="600"
-              height="500"
-            />
+            <div className="col-lg-6 col-md-12">
+              <img
+                src="image.png"
+                className="mt-5 img-fluid"
+                style={{ maxWidth: "85%" }}
+              />
+            </div>
           </div>
         </div>
       </div>
