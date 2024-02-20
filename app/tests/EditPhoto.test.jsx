@@ -1,4 +1,7 @@
+/* global jest test expect */
+/* eslint-disable no-unused-vars */
 import React from "react";
+/* eslint-enable no-unused-vars */
 import { render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
 import EditPhoto from "../src/components/assets/EditPhoto";

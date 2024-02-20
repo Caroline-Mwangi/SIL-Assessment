@@ -12,14 +12,6 @@ export default function User() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const getUser = async () => {
-    const { data } = await axios.get(
-      `https://jsonplaceholder.typicode.com/users/${id}`
-    );
-    setUser(data);
-    setLoading(false);
-  };
-
   const getUserSession = () => {
     axios
       .get(`https://www.googleapis.com/oauth2/v1/userinfo`, {
@@ -37,11 +29,18 @@ export default function User() {
   };
 
   useEffect(() => {
+    const getUser = async () => {
+      const { data } = await axios.get(
+        `https://jsonplaceholder.typicode.com/users/${id}`
+      );
+      setUser(data);
+      setLoading(false);
+    };
     setTimeout(() => {
       getUser();
       getUserSession();
     }, 3000);
-  }, []);
+  }, [id]);
 
   const logout = () => {
     googleLogout();
@@ -86,7 +85,7 @@ export default function User() {
           )}
 
           <h1 className="text-center mb-5 text-uppercase ">
-            {user.username}'s ALBUMS
+            {user.username}&#39;s ALBUMS
           </h1>
 
           <div>

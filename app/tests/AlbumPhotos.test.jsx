@@ -1,5 +1,8 @@
+/* global jest test expect */
+/* eslint-disable no-unused-vars */
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+/* eslint-enable no-unused-vars */
+import { render, screen } from "@testing-library/react";
 import axios from "axios";
 import AlbumPhotos from "../src/components/assets/AlbumPhotos";
 import { BrowserRouter } from "react-router-dom";

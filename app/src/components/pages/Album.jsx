@@ -12,14 +12,6 @@ export default function Album() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const getAlbum = async () => {
-    const { data } = await axios.get(
-      `https://jsonplaceholder.typicode.com/albums/${id}`
-    );
-    setAlbum(data);
-    setLoading(false);
-  };
-
   const getUserSession = () => {
     axios
       .get(`https://www.googleapis.com/oauth2/v1/userinfo`, {
@@ -43,11 +35,18 @@ export default function Album() {
   };
 
   useEffect(() => {
+    const getAlbum = async () => {
+      const { data } = await axios.get(
+        `https://jsonplaceholder.typicode.com/albums/${id}`
+      );
+      setAlbum(data);
+      setLoading(false);
+    };
     setTimeout(() => {
       getAlbum();
       getUserSession();
     }, 3000);
-  }, []);
+  }, [id]);
   return (
     <>
       {loading ? (

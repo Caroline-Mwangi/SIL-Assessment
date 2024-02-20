@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(
     JSON.parse(sessionStorage.getItem("user")) || null
   );
