@@ -3,7 +3,7 @@ import React from "react";
 /* eslint-enable no-unused-vars */
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import UserAlbums from "../assets/UserAlbums";
 import Loader from "../assets/Loader";
 import { googleLogout } from "@react-oauth/google";
@@ -63,29 +63,48 @@ export default function User() {
                 className="mb-5 mt-2 me-1 position-absolute top-0 end-0"
                 style={{ fontSize: "1em" }}
               >
-                <div className="dropdown me-2 mt-2">
-                  <button
-                    className="bg-transparent btn-sm border-0 dropdown-toggle d-flex align-items-center mt-1"
-                    data-bs-toggle="dropdown"
-                  >
-                    <img
-                      src={profile.picture}
-                      className="rounded-5 me-2"
-                      width="25"
-                      height="25"
-                    />
-                    Hello, {profile.name}
-                  </button>
-                  <ul className="dropdown-menu bg-success-subtle end-0 mt-2 ">
-                    <li className="d-flex justify-content-center align-items-center">
-                      <button
-                        className=" bg-transparent border-0 btn-sm"
-                        onClick={logout}
-                      >
-                        Logout
-                      </button>
-                    </li>
-                  </ul>
+                <div className="d-flex align-items-center">
+                  <Link to="/home" className=" me-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#4CAF50"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="feather feather-home"
+                    >
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" />
+                      <polyline points="9 22 9 12 15 12 15 22" />
+                    </svg>
+                  </Link>
+                  <div className="dropdown">
+                    <button
+                      className="bg-transparent btn-sm border-0 dropdown-toggle d-flex align-items-center mt-1"
+                      data-bs-toggle="dropdown"
+                    >
+                      Hello, {profile.name}
+                      <img
+                        src={profile.picture}
+                        className="rounded-5 ms-2"
+                        width="25"
+                        height="25"
+                      />
+                    </button>
+                    <ul className="dropdown-menu bg-success-subtle end-0 mt-2 ">
+                      <li className="d-flex justify-content-center align-items-center">
+                        <button
+                          className=" bg-transparent border-0 btn-sm"
+                          onClick={logout}
+                        >
+                          Logout
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </>
