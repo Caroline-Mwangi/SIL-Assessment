@@ -70,13 +70,13 @@ export default function Home() {
                     className="bg-transparent btn-sm border-0 dropdown-toggle d-flex align-items-center mt-1"
                     data-bs-toggle="dropdown"
                   >
+                    Hello, {profile.name}
                     <img
                       src={profile.picture}
-                      className="rounded-5 me-2"
+                      className="rounded-5 ms-2"
                       width="25"
                       height="25"
                     />
-                    Hello, {profile.name}
                   </button>
                   <ul className="dropdown-menu bg-success-subtle end-0 mt-2 ">
                     <li className="d-flex justify-content-center align-items-center">
